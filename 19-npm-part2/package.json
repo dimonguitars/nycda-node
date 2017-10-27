@@ -1,0 +1,16 @@
+{
+  "name": "first-app",
+  "version": "0.0.1",
+  "description": "First Node App here",
+  "main": "app.js",
+  "dependencies": {
+    "http-server": "0.10.0",
+    "prompt": "1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "app-test"
+  },
+  "author": "nycda",
+  "license": "MIT"
+}
