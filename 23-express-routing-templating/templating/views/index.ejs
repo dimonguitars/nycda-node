@@ -1,0 +1,11 @@
+<% include header.ejs %>
+    <h1>EJS Is Helpful!</h1>
+    <div>
+       <h1>My Grocery List</h1>
+       <ul>
+         <% for(var i = 0; i < groceries.length; i++) { %>
+         <li><%= groceries[i] %></li>
+         <% } %>
+       </ul>
+    </div>
+<% include footer.ejs %>

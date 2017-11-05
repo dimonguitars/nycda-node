@@ -1,0 +1,11 @@
+<% include header.ejs %>
+    <h1>Contact me!</h1>
+    <div>
+       <h2>Reach me:</h2>
+       <ul>
+         <% for(var i = 0; i < contact.length; i++) { %>
+         <li><%= contact[i] %></li>
+         <% } %>
+       </ul>
+    </div>
+<% include footer.ejs %>
