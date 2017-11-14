@@ -1,0 +1,66 @@
+-- create database
+create database test;
+-- connect to the database
+\c test;
+-- create a tables
+create table hats (
+ name text,
+ material text,
+ height integer,
+ brim boolean
+);
+-- display tables
+\dt;
+-- or
+\dt+;
+-- describe a table
+\d+ hats;
+-- insert into a table
+insert into hats values ('sun hat', 'straw', 7, true);
+insert into hats (name, material, height, brim) values
+ ('top hat', 'buckram', 12, true);
+insert into hats (name, material, height, brim) values
+ ('cloche', 'felt', 6, false),
+ ('chicken', 'bwuk bwuk bwuk', 12, false);
+-- show data
+select * from hats;
+select * from hats where name = 'top hat';
+select count(*) from hats;
+-- delete data
+delete from hats where name = 'chicken';
+-- alter a table
+alter table hats add column price integer;
+
+-- slide 12
+insert into hats (name, material, height, brim, price) values
+ ('fedora', 'felt', 7, true, 60),
+ ('regular hat', 'felt', 5, true, 70),
+ ('baseball hat', 'cotton', 3, false, 100);
+select * from hats where material = 'felt';
+UPDATE hats SET price = 40 WHERE name = 'cloche';
+UPDATE hats SET price = 20 WHERE name = 'top hat';
+UPDATE hats SET price = 140 WHERE name = 'sun hat';
+
+-- delete a table
+drop table hats;
+
+-- create a table with a primary key
+create table hats (
+ id serial primary key,
+ name text,
+ material text,
+ height integer,
+ brim boolean,
+ price integer
+);
+
+-- slide 17
+create table users (
+ id serial primary key,
+ name text,
+ email text unique
+);
+insert into users (name, email) values
+ ('Gigi', 'gigi@gmail.com'),
+ ('Howard', 'howard@gmail.com'),
+ ('Jean', 'jean@gmail.com');
