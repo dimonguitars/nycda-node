@@ -1,0 +1,65 @@
+-- building on what was in the previous lecture starting on slide 19 of Intro To Postgresql lecture
+-- add coliumn to hats to create a relationship
+alter table hats add column user_id integer;
+-- drop the column
+alter table hats drop column user_id;
+-- UNIQUE for one to one relationship, NOT NULL for required field, FOREIGN KEY if checking on existance
+-- setup FOREIGN KEY
+alter table hats add column user_id integer references users;
+-- test
+insert into hats (name, material, height, brim, price, user_id) values ('beret', 'felt', 6, true, 112, 2);
+-- some more info on foreign keys https://stackoverflow.com/questions/28558920/postgresql-foreign-key-syntax
+-- chaining queries
+select * from hats where user_id = (select (id) from users where email = 'gigi@gmail.com');
+
+
+--PostgreSQL: Associative Tables
+-- slide 5 with insta example in mind
+create database insta;
+\c insta;
+create table users (
+ id serial primary key,
+ username text not null unique,
+ email text not null unique,
+ password text not null,
+ description text
+);
+create table images (
+ id serial primary key,
+ src text not null unique,
+ user_id integer references users(id),
+ caption text
+);
+create table popularity (
+ img_id integer references images(id),
+ user_id integer references users(id)
+);
+create table following (
+ user_id integer references users(id),
+ following_id integer references users(id),
+ CONSTRAINT user_id_cannot_be_equal_to_following_id_CHK CHECK (user_id <> following_id)
+);
+-- test
+insert into users (username, email, password, description) values
+ ('chris', 'c@c.com', '09876', 'my third account');
+insert into images (src, user_id, caption) values
+ ('antonina_1.png', 1, 'antonina first image');
+insert into images (src, user_id, caption) values
+ ('antonina_10.png', 10, 'antonina test CONSTRAINT image');
+insert into popularity (img_id, user_id) values
+ (3, 2);
+insert into popularity (img_id, user_id) values
+ (30, 2);
+insert into popularity (img_id, user_id) values
+ (3, 20);
+insert into following (user_id, following_id) values
+ (1, 2);
+insert into following (user_id, following_id) values
+ (2, 1);
+insert into following (user_id, following_id) values
+ (2, 2);
+insert into following (user_id, following_id) values
+ (20, 1);
+
+
+-- PostgreSQL: Node.js Client
