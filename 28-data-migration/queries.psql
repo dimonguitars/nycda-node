@@ -1,0 +1,11 @@
+-- to see all the databases
+\l
+-- to export your database: have to run it from the installation of Postgresql, in my windows case it is '/c/PostgreSQL', in your mac case it will be most likely bin folder. Flags -Fc mean that it is a custom format, more info here: https://www.postgresql.org/docs/9.2/static/app-pgrestore.html
+pg_dump -Fc -U root insta > insta_backup.dump
+-- these two are ran in the psql shell, the rest of the commands are ran in the terminal
+  -- first create a database to import the data to
+  create database insta_restored;
+  -- connect to the database
+  \c insta_restored;
+-- to import a database
+pg_restore -U root -d insta_restored insta_backup.dump
