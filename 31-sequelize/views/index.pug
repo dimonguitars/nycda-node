@@ -1,0 +1,10 @@
+include includes/header.pug
+div(class="container")
+  h1= title
+
+  each hat in hats
+    div
+      h2= hat.name
+      p= hat.brim
+   
+include includes/footer.pug
