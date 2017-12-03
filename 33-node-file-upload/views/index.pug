@@ -1,0 +1,11 @@
+include includes/header.pug
+div(class="container")
+  h1= title
+  
+  each user in users
+    div(id=user.id)
+      h2= user.username
+      a(href='/user/' + user.id)
+        img(src=user.image_path)
+   
+include includes/footer.pug
