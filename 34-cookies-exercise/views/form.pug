@@ -1,0 +1,17 @@
+include includes/header.pug
+
+div(class="container")
+  div
+     h1= title
+     
+     form(action="/add" method="post")
+       div
+         label= 'Cookie Name:'
+         input(type='text' name='cookName')
+       div
+         label= 'How Many:'
+         input(type='number' name='howMany')
+       div
+         button(type='submit') Submit
+   
+include includes/footer.pug
