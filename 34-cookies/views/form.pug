@@ -1,0 +1,17 @@
+include includes/header.pug
+
+div(class="container")
+  div
+     h1= title
+     
+     form(action="/create" method="post" enctype="multipart/form-data")
+       div
+         label= 'User Name:'
+         input(type='text' name='userName')
+       div
+         label= 'File:'
+         input(type='file' name='newFile')
+       div
+         button(type='submit') Submit
+   
+include includes/footer.pug

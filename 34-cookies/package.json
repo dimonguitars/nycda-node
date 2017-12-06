@@ -1,0 +1,22 @@
+{
+  "name": "34-cookies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "cookies-js": "^1.2.3",
+    "express": "^4.16.2",
+    "jsdom": "^11.5.1",
+    "multer": "^1.3.0",
+    "pg": "^7.4.0",
+    "pug": "^2.0.0-rc.4",
+    "sequelize": "^4.25.1",
+    "sharp": "^0.18.4"
+  }
+}
