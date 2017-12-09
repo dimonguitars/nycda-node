@@ -1,0 +1,17 @@
+include includes/header.pug
+
+div(class="container")
+  div
+     h1= title
+     
+     form(action="/add" method="post" enctype="application/x-www-form-urlencoded")
+       div
+         label= 'First Name:'
+         input(type='text' name='firstname')
+       div
+         label= 'Last Name:'
+         input(type='text' name='lastname')
+       div
+         button(type='submit') Submit
+   
+include includes/footer.pug
