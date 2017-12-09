@@ -3,15 +3,15 @@ include includes/header.pug
 div(class="container")
   div
      h1= title
-     
-     form(action="/add" method="post" enctype="application/x-www-form-urlencoded")
-       div
-         label= 'First Name:'
-         input(type='text' name='firstname')
-       div
-         label= 'Last Name:'
-         input(type='text' name='lastname')
-       div
-         button(type='submit') Submit
+     div(class="row")
+       form(action="/add" method="post" enctype="application/x-www-form-urlencoded" class="col-sm-4")
+         div(class="form-group")
+           label= 'First Name:'
+           input(type='text' name='firstname' class="form-control")
+         div(class="form-group")
+           label= 'Last Name:'
+           input(type='text' name='lastname' class="form-control")
+         div(class="form-group")
+           button(type='submit' class="btn btn-primary") Submit
    
 include includes/footer.pug
