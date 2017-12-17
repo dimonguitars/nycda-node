@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Babel Demo</title>
+</head>
+<body>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.js"></script>
+ <script type="text/babel">
+ // ES5 does not support default arguments for functions
+ var sayHello = function(name = 'World') {
+ return 'Hello ' + name;
+ };
+ console.log(sayHello()); // Hello World
+ console.log(sayHello('Greg')); // Hello Greg
+ </script>
+</body>
+</html>
