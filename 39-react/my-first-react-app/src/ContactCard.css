@@ -1,0 +1,8 @@
+.ContactCard{
+  margin: 40px 0;
+  padding: 20px;
+  background-color: #e6e6e6;
+}
+.ContactCard > div{
+  margin: 10px 0;
+}

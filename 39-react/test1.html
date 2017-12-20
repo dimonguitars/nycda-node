@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <!-- New versions -->
+    <!-- <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
+    <!-- Old Versions -->
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+   <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- <script type="text/babel">
+      ReactDOM.render(
+        <h1>Hello, world!</h1>,
+        document.getElementById('root')
+      );
+    </script> -->
+
+    <!-- Create a Component with React.createClass -->
+    <!-- Doesn't work with current version of React -->
+    <!-- <script type="text/babel">
+       var HelloWorld = React.createClass({
+         render: function() {
+           return <div> Hello World </div>
+         }
+       });
+       ReactDOM.render(
+         <HelloWorld />,
+         document.getElementById('root')
+       );
+    </script> -->
+
+    <!-- Create a Component with ES6 class syntax -->
+    <!-- Doesn't work with current version of React -->
+    <!-- <script type="text/babel">
+       class HelloWorld extends React.Component{
+         render() {
+           return (
+           <div>
+             <ul>
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+             </ul>
+             <ul>
+               <li>Item 1</li>
+               <li>Item 2</li>
+               <li>Item 3</li>
+             </ul>
+           </div>
+          )
+         }
+       }
+       ReactDOM.render(
+         <HelloWorld />,
+         document.getElementById('root')
+       )
+    </script> -->
+
+    <!-- Properties -->
+    <!-- Doesn't work with current version of React -->
+    <!-- <script type="text/babel">
+      class HelloWorld extends React.Component{
+        render() {
+             return (
+             <div>
+               <h1 className="component-title">{this.props.title}</h1>
+               <div>{this.props.children}</div>
+               <p>{console.log('Heyaa')}</p>
+               <br/>
+               <p>{5*5}</p>
+             </div>
+            )
+         }
+       }
+       // Checking if the passes props were matching our criteria
+       HelloWorld.propTypes = {
+         title: function(props, propName){
+           if (typeof props[propName] !== 'string'){
+             return new Error(`Title must be a string! Was a ${typeof props[propName]}`)
+           }
+         }
+       }
+       ReactDOM.render(
+         <div>
+         <HelloWorld title="Div 1">
+            <HelloWorld title="inner div" />
+         </HelloWorld>
+         <HelloWorld title="Div 2">
+         Here is some other text
+         </HelloWorld>
+         <HelloWorld title={10}>
+         Here is some more text
+         </HelloWorld>
+         </div>,
+         document.getElementById('root')
+       )
+    </script> -->
+
+    <!-- Events -->
+    <!-- Doesn't work with current version of React -->
+    <!-- <script type="text/babel">
+      class HelloWorld extends React.Component{
+        hello(){
+          alert('Hello!')
+        }
+        bye(){
+          alert('Good Bye!')
+        }
+        render() {
+             return (
+             <div>
+                <button onClick={this.hello}>Say Hello!</button>
+                <button onClick={this.bye}>Say Good Bye!</button>
+             </div>
+            )
+         }
+       }
+       ReactDOM.render(
+         <HelloWorld />,
+         document.getElementById('root')
+       )
+    </script> -->
+
+    <!-- State -->
+    <!-- Doesn't work with current version of React -->
+    <!-- <script type="text/babel">
+      var Checkbox = React.createClass({
+        getInitialState(){
+          return {checked: true}
+        },
+        handleCheck(){
+          this.setState({checked: !this.state.checked})
+        },
+        render() {
+          var msg
+          if(this.state.checked){
+             msg = 'checked'
+          }
+          else{
+            msg = 'unchecked'
+          }
+          return (
+          <div>
+            <input type="checkbox" onChange={this.handleCheck}
+            defaultChecked={this.state.checked}/>
+            <p>This checkbox is {msg}</p>
+          </div>
+         )
+         }
+       })
+       ReactDOM.render(
+         <Checkbox />,
+         document.getElementById('root')
+       )
+    </script> -->
+
+    <!-- References -->
+    <!-- Doesn't work with current version of React -->
+    <script type="text/babel">
+      var MyText = React.createClass({
+        getText(){
+          var text = this.refs.myText.value
+          console.log(text);
+        },
+        render() {
+          return (
+          <div>
+            <textarea ref="myText" onChange={this.getText}></textarea>
+          </div>
+         )
+         }
+       })
+       ReactDOM.render(
+         <MyText />,
+         document.getElementById('root')
+       )
+    </script>
+  </body>
+</html>
