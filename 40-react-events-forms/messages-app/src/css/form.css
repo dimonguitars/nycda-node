@@ -1,0 +1,11 @@
+.container{
+  width: 60%;
+  margin: 0 auto;
+}
+label{
+  font-weight: bold;
+  display: block;
+}
+button{
+  display: block;
+}
