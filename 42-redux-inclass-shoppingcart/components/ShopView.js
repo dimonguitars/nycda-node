@@ -1,17 +1,38 @@
 import React, { Component } from 'react'
 import '../css/ShopView.css'
 import Shop from './Shop'
+var products = [
+  {
+    "id": 1,
+    "title": "Popcorn",
+    "price": 3.99,
+    "quanity": 100
+  },
+  {
+    "id": 2,
+    "title": "Potato Chips",
+    "price": 2.99,
+    "quanity": 250
+  },
+  {
+    "id": 3,
+    "title": "Pita Chips",
+    "price": 4.99,
+    "quanity": 80
+  }
+]
+
 
 class ShopView extends Component {
   constructor(props) {
     super(props)
-    this.data = []
+    this.data = products
   }
   render() {
     var productsToRender = [];
-    console.log(data);
+    console.log(this.data);
     this.data.forEach(function (file){
-      productsToRender.push(<Shop />)
+      productsToRender.push(<Shop product={file} />)
     });
     return (
       <div className="container">
