@@ -22,6 +22,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
    onIncrementBy5: () => {
      dispatch(incrementBy(5))
    }
+   },
+   onIncrementBy10: () => {
+     dispatch(incrementBy(10))
+   }
  }
 }
 const CounterApp = connect(mapStateToProps, mapDispatchToProps)(Counter)

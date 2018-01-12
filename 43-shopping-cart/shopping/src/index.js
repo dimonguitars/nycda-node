@@ -1,24 +1,24 @@
-/* global window, document */
-/* eslint no-render-return-value: 0, jsx-filename-extension: 0 */
-
-// index.js
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import ShopView from './components/ShopView';
-import shop from './reducers';
+import reducer from './reducers';
+import Products from './components/products/ProductContainer';
+import Cart from './components/cart/CartContainer';
 
-/* eslint-disable no-underscore-dangle */
-const store = createStore(shop,
+const store = createStore(reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ &&
   window.__REDUX_DEVTOOLS_EXTENSION__());
-/* eslint-enable */
 
 const render = () => ReactDOM.render(
   <Provider store={store}>
-    <ShopView />
+    <div>
+      <Products />
+      <Cart />
+    </div>
   </Provider>,
   document.getElementById('root')
 );
