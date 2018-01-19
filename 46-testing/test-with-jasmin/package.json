@@ -1,0 +1,15 @@
+{
+  "name": "test-with-jasmin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-init": "jasmine init",
+    "test": "jasmine"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^2.9.0"
+  }
+}

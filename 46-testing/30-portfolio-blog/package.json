@@ -1,0 +1,19 @@
+{
+  "name": "30-portfolio-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-init": "jasmine init",
+    "test": "jasmine"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "jasmine": "^2.9.0",
+    "pg": "^7.4.0",
+    "pug": "^2.0.0-rc.4",
+    "request": "^2.83.0"
+  }
+}
