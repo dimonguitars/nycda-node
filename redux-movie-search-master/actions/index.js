@@ -15,7 +15,7 @@ export const loadMovies = (searchParam, dispatch) => {
 	dispatch(requestMovies());
 
 
-	fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=c0571123&s=${searchParam}`)
+	fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=YOUR_API_KEY&s=${searchParam}`)
   .then((response) => response.json())
   .then((responseJson) => {
     // "we successfully got back a response" scenario
