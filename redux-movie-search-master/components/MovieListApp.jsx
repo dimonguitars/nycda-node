@@ -1,6 +1,6 @@
 // components/CounterApp.jsx
 import { connect } from 'react-redux';
-import { loadMovies, requestMovies } from '../actions';
+import { loadMovies } from '../actions';
 import MovieList from './MovieList';
 
 const mapStateToProps = (state, ownProps) => {
