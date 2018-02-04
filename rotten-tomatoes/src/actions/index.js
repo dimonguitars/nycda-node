@@ -1,5 +1,6 @@
 import axios from 'axios';
 import fetch from 'isomorphic-fetch';
+require('dotenv').config();
 
 // actions/index.js
 // Namespace actions
@@ -16,7 +17,7 @@ export const loadMovies = (searchParam) => {
 			// indicate we are loading movies now
 			dispatch(requestMovies());
 
-			fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=YOUR_API_KEY&s=${searchParam}`)
+			fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${searchParam}`)
 			.then((response) => response.json())
 			.then((responseJson) => {
 				// "we successfully got back a response" scenario
@@ -40,9 +41,7 @@ export const loadMovies = (searchParam) => {
 					dispatch(handleFailure(err))
 				}
 			)
-
     }
-
 };
 
 export const handleFailure = (err) => {

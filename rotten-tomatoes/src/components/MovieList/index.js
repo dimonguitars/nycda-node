@@ -6,15 +6,18 @@ class MovieList extends Component {
 		super(props);
 	}
 
+	onSearch(event) {
+		this.props.actions.loadMovies(event.target.value);
+	}
+
 	render() {
-		console.log(this.props);
 		const movies = this.props.movies.map((movie) => {
-			return <li key={movie.imdbID}>{movie.Title}</li>
+			return <li id={movie.imdbID} key={movie.imdbID}>{movie.Title}</li>
 		});
 
 		return (
 			<div>
-				<input type="text" onChange={this.props.actions.loadMovies('as')}/>
+				<input type="text" onChange={this.onSearch.bind(this)}/>
 				<h1> Movie List </h1>
 
 				{this.props.requestPending &&

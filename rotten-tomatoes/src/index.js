@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './routes';
-// require('dotenv').config();
 
 import './index.css';
 
@@ -10,11 +9,13 @@ import { applyMiddleware, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const middleware = applyMiddleware(thunk, createLogger());
-export const store = createStore(rootReducer, middleware,
-  window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  window.__REDUX_DEVTOOLS_EXTENSION__());
+
+const store = createStore(rootReducer, composeWithDevTools(
+  middleware,
+));
 
 ReactDOM.render(
   <Provider store={store}>
