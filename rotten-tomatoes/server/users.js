@@ -14,9 +14,25 @@ router.get('/', function(req, res, next) {
         .catch(next);
 });
 
-router.get('/:id', function(req, res, next) {
+router.post('/create/user', function(req, res, next) {
+  console.log(req.body);
+    User.sync().then(function(){
+      User.create({
+        first_name: req.body.user.firstName,
+        last_name: req.body.user.lastName,
+        email: req.body.user.email,
+        password: '12345'
+      }).then(result => {
+          res.status(200).send(result);
+      })
+      .catch(next);
+    });
+});
+
+router.get('/:email', function(req, res, next) {
+  console.log(req.params.email);
     User.findOne({
-            where:{id:req.params.id},
+            where:{ email:req.params.email },
             include: [Comment]
         })
         .then(result => {
@@ -24,5 +40,6 @@ router.get('/:id', function(req, res, next) {
         })
         .catch(next);
 });
+
 
 module.exports = router

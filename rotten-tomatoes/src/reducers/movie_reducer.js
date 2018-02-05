@@ -1,4 +1,4 @@
-import { LOAD_REQUEST, LOAD_SUCCESS, LOAD_FAILURE, DETAILS_REQUEST, DETAILS_SUCCESS } from '../actions';
+import { LOAD_REQUEST, LOAD_SUCCESS, LOAD_FAILURE, DETAILS_REQUEST, DETAILS_SUCCESS, COMMENT_REQUEST, COMMENT_SUCCESS, COMMENT_SUBMIT_CHECK, COMMENT_SUBMIT_SUCCESS, COMMENT_SUBMIT_CREATE } from '../actions';
 
 const initialState = {
   isLoading: false,
@@ -6,7 +6,9 @@ const initialState = {
   errorMessage: false,
   isSuccess: false,
   movies: [],
-  movie: {}
+  movie: {},
+  comments: [],
+  existingUser: {}
 };
 
 const movie_reducer = (state = initialState, action) => {
@@ -20,6 +22,14 @@ const movie_reducer = (state = initialState, action) => {
       };
 
     case DETAILS_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        isSuccess: false
+      };
+
+    case COMMENT_REQUEST:
       return {
         ...state,
         isLoading: true,
@@ -44,6 +54,23 @@ const movie_reducer = (state = initialState, action) => {
         isError: false,
         isSuccess: true,
         movie: action.movie
+      };
+    }
+
+    case COMMENT_SUBMIT_CHECK: {
+      return {
+        ...state,
+        existingUser: action.user
+      };
+    }
+
+    case COMMENT_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        isSuccess: true,
+        comments: action.comments
       };
     }
 

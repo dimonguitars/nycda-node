@@ -9,7 +9,8 @@ const mapStateToProps = (state) => {
     movie: state.movie_reducer.movie,
     requestPending: state.movie_reducer.isLoading,
     isError: state.movie_reducer.isError,
-    errorMessage: state.movie_reducer.errorMessage
+    errorMessage: state.movie_reducer.errorMessage,
+    comments: state.movie_reducer.comments
   }
 };
 
