@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 class MovieList extends Component {
@@ -12,7 +13,7 @@ class MovieList extends Component {
 
 	render() {
 		const movies = this.props.movies.map((movie) => {
-			return <li id={movie.imdbID} key={movie.imdbID}>{movie.Title}</li>
+			return <Link to={`/movie/${movie.imdbID}`} key={movie.imdbID} className="movie-link" activeClassName="active">{movie.Title}</Link>
 		});
 
 		return (

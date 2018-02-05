@@ -4,11 +4,11 @@ const Sequelize = require('sequelize');
 const db = require('../index.js');
 
 const User = db.define('users', {
-  firstName: {
+  first_name: {
   	type: Sequelize.STRING,
   	allowNull: false
   },
-  lastName: {
+  last_name: {
   	type: Sequelize.STRING,
   	allowNull: false
   },

@@ -9,7 +9,7 @@ const Comment = db.define('comments', {
   	allowNull: false,
   	defaultValue: null
   },
-  movieId: {
+  movie_id: {
   	type: Sequelize.STRING,
   	allowNull: false
   }

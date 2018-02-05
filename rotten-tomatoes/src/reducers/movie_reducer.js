@@ -1,16 +1,25 @@
-import { LOAD_REQUEST, LOAD_SUCCESS, LOAD_FAILURE } from '../actions';
+import { LOAD_REQUEST, LOAD_SUCCESS, LOAD_FAILURE, DETAILS_REQUEST, DETAILS_SUCCESS } from '../actions';
 
 const initialState = {
   isLoading: false,
   isError: false,
   errorMessage: false,
   isSuccess: false,
-  movies: []
+  movies: [],
+  movie: {}
 };
 
 const movie_reducer = (state = initialState, action) => {
   switch(action.type) {
     case LOAD_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+        isSuccess: false
+      };
+
+    case DETAILS_REQUEST:
       return {
         ...state,
         isLoading: true,
@@ -25,6 +34,16 @@ const movie_reducer = (state = initialState, action) => {
         isError: false,
         isSuccess: true,
         movies: action.movies
+      };
+    }
+
+    case DETAILS_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        isSuccess: true,
+        movie: action.movie
       };
     }
 
